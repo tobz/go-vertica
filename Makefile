@@ -70,6 +70,9 @@ test: $(BIN)/ginkgo
 stage/$(NAME): .godeps/.gpm_installed $(SOURCES) | stage
 	$(GVP) in go build -o $@ -ldflags '-X\ main.version\ $(VER)' -v .
 
+stage/vertica_test: .godeps/.gpm_installed $(SOURCES) | stage
+	$(GVP) in go build -o stage/vertica_test -v vertica_test/main.go
+
 ## same, but shorter
 build: test stage/$(NAME)
 
